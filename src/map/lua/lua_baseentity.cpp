@@ -7326,7 +7326,7 @@ void CLuaBaseEntity::delLearnedWeaponskill(uint8 wsID)
  *  Notes   :
  ************************************************************************/
 
-void CLuaBaseEntity::trySkillUp(uint8 skill, uint8 level, sol::object const& forceSkillUpObj, sol::object const& useSubSkillObj)
+void CLuaBaseEntity::trySkillUp(uint8 skill, uint8 level)
 {
     if (m_PBaseEntity->objtype != TYPE_PC)
     {
@@ -7334,11 +7334,8 @@ void CLuaBaseEntity::trySkillUp(uint8 skill, uint8 level, sol::object const& for
         return;
     }
 
-    bool forceSkillUp = (forceSkillUpObj != sol::nil) ? forceSkillUpObj.as<bool>() : false;
-    bool useSubSkill  = (useSubSkillObj != sol::nil) ? forceSkillUpObj.as<bool>() : false;
-
     auto* PChar = static_cast<CCharEntity*>(m_PBaseEntity);
-    charutils::TrySkillUP(PChar, static_cast<SKILLTYPE>(skill), level, forceSkillUp, useSubSkill);
+    charutils::TrySkillUP(PChar, static_cast<SKILLTYPE>(skill), level);
 }
 
 /************************************************************************

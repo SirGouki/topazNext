@@ -4,7 +4,7 @@
 -- Type: Standard NPC
 -- !pos 70.086 -3.503 -69.939 239
 -----------------------------------
-require("scripts/globals/quests")
+-- Auto-Script: Requires Verification (Verfied by Brawndo)
 -----------------------------------
 local entity = {}
 
@@ -12,11 +12,7 @@ entity.onTrade = function(player, npc, trade)
 end
 
 entity.onTrigger = function(player, npc)
-    if player:getQuestStatus(tpz.quest.log_id.WINDURST, tpz.quest.id.windurst.THE_POSTMAN_ALWAYS_KO_S_TWICE) == QUEST_ACCEPTED then
-        player:startEvent(51)
-    else
-        player:startEvent(43)
-    end
+    player:startEvent(43)
 end
 
 entity.onEventUpdate = function(player, csid, option)

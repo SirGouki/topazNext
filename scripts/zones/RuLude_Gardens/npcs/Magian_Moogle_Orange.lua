@@ -4,41 +4,35 @@
 -- Type: Magian Trials NPC (Weapon/Empyrean Armor)
 -- !pos -11 2.453 118 64
 -----------------------------------
+require("scripts/globals/settings")
+require("scripts/globals/keyitems")
+local ID = require("scripts/zones/RuLude_Gardens/IDs")
 require("scripts/globals/magiantrials")
-require("scripts/globals/status")
 -----------------------------------
 local entity = {}
-local EVENT_IDS = {
-    [1] = 10121,
-    [2] = 10122,
-    [3] = 10123,
-    [4] = 10124,
-    [5] = 10125,
-    [6] = 10129,
-}
 
-entity.onTrade = function(player, npc, trade)
+entity.onTrade = function(player,npc,trade)
     if ENABLE_MAGIAN_TRIALS ~= 1 then
         return
     end
 
-    tpz.magian.magianOnTrade(player, npc, trade, tpz.itemType.WEAPON, EVENT_IDS)
+    tpz.magian.magianOrangeOnTrade(player,npc,trade)
 end
 
-entity.onTrigger = function(player, npc)
+entity.onTrigger = function(player,npc)
     if ENABLE_MAGIAN_TRIALS ~= 1 then
         return
     end
 
-    tpz.magian.magianOnTrigger(player, npc, EVENT_IDS)
+    tpz.magian.magianOrangeOnTrigger(player,npc)
 end
 
-entity.onEventUpdate = function(player, csid, option)
-    tpz.magian.magianEventUpdate(player, itemId, csid, option, EVENT_IDS)
+entity.onEventUpdate = function(player,csid,option)
+    tpz.magian.magianOrangeEventUpdate(player,itemId,csid,option)
 end
 
-entity.onEventFinish = function(player, csid, option)
-    tpz.magian.magianOnEventFinish(player, itemId, csid, option, EVENT_IDS)
+entity.onEventFinish = function(player,csid,option)
+    tpz.magian.magianOrangeOnEventFinish(player,itemId,csid,option)
 end
 
 return entity

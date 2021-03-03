@@ -23,8 +23,7 @@ entity.onTrigger = function(player, npc)
             player:startEvent(39)
         elseif player:getRank() == 4 and
             currentMission == tpz.mission.id.sandoria.NONE and
-            getMissionRankPoints(player, 13) == 1 and
-            MissionStatus == 0
+            getMissionRankPoints(player, 13) == 1
         then
             if player:hasKeyItem(tpz.ki.ARCHDUCAL_AUDIENCE_PERMIT) then
                 player:startEvent(130, 1)
@@ -34,10 +33,10 @@ entity.onTrigger = function(player, npc)
         elseif player:getRank() >= 4 then
             player:messageSpecial(ID.text.RESTRICTED)
         else
-            player:messageSpecial(ID.text.RESTRICTED + 1) -- you have no letter of introduction
+            player:messageSpecial(ID.text.RESTRICTED+1) -- you have no letter of introduction
         end
     else
-        player:messageSpecial(ID.text.RESTRICTED + 1) -- you have no letter of introduction
+        player:messageSpecial(ID.text.RESTRICTED+1) -- you have no letter of introduction
     end
 
     return 1
