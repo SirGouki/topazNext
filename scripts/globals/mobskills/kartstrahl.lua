@@ -20,10 +20,16 @@ mobskill_object.onMobWeaponSkill = function(target, mob, skill)
     local dmgmod = 2.5
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT, info.hitslanded)
+<<<<<<< HEAD
 	target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
 	
 	MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SLEEP_I, 1, 0, 30)
 	
+=======
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.BLUNT)
+    MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SLEEP_I, 1, 0, 30)
+
+>>>>>>> e87283842477549463304b708611c47e91c88ca6
     return dmg
 end
 

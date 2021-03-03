@@ -5,8 +5,12 @@
 --
 --
 -----------------------------------
+<<<<<<< HEAD
 require("scripts/globals/status")
+=======
+>>>>>>> e87283842477549463304b708611c47e91c88ca6
 require("scripts/globals/monstertpmoves")
+require("scripts/globals/status")
 -----------------------------------
 local mobskill_object = {}
 
@@ -19,10 +23,15 @@ mobskill_object.onMobWeaponSkill = function(target, mob, skill)
     local accmod = 1
     local dmgmod = 2.3
     local info = MobPhysicalMove(mob, target, skill, numhits, accmod, dmgmod, TP_NO_EFFECT)
+<<<<<<< HEAD
 	
     local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
 target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
     
+=======
+    local dmg = MobFinalAdjustments(info.dmg, mob, skill, target, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING, info.hitslanded)
+    target:takeDamage(dmg, mob, tpz.attackType.PHYSICAL, tpz.damageType.PIERCING)
+>>>>>>> e87283842477549463304b708611c47e91c88ca6
     MobPhysicalStatusEffectMove(mob, target, skill, tpz.effect.SLEEP_I, 1, 0, 30)
 
     return dmg
